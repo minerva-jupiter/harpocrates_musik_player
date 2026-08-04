@@ -1,0 +1,16 @@
+[package]
+name = "harpocrates_musik_player"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+crossterm = "0.29.0"
+ratatui = {version = "0.30.2"}
+rodio = {version="0.22.2", default-features = true}
+toml = {version = "1.1.4+spec-1.1.0"}
+serde = {version = "1.0.190", features = ["derive"]}
+directories = {version = "6.0.0"}
+
+[[bin]]
+name = "hcp"
+path = "src/main.rs"
