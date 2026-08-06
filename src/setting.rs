@@ -43,6 +43,17 @@ impl Settings {
         &self.audio
     }
 
+    pub fn audio_mut(&mut self) -> &mut AudioSettings {
+        &mut self.audio
+    }
+
+    pub fn save(&self) -> Result<(), Box<dyn std::error::Error>> {
+        let path = Self::get_path().ok_or("Failed to get config directory path")?;
+        let content = toml::to_string(self)?;
+        std::fs::write(path, content)?;
+        Ok(())
+    }
+
     pub fn load() -> Result<Self, Box<dyn std::error::Error>> {
         let path = Self::get_path().ok_or("Failed to get config directory path")?;
         if !path.exists() {
@@ -71,5 +82,15 @@ impl AudioSettings {
 
     pub fn volume(&self) -> f32 {
         self.volume
+    }
+
+    pub fn set_volume(&mut self, volume: f32) {
+        self.volume = volume;
+    }
+    pub fn output_device(&self) -> &str {
+        &self.output_device
+    }
+    pub fn set_output_device(&mut self, output_device: String) {
+        self.output_device = output_device;
     }
 }
