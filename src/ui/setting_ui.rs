@@ -8,7 +8,7 @@ use ratatui::{
 
 use crate::{
     app::App,
-    audio::{AudioEngine, DeviceManager},
+    audio::{AudioPlayer, DeviceManager},
 };
 
 pub fn render(f: &mut Frame, app: &mut App) {

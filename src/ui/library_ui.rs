@@ -6,7 +6,7 @@ use ratatui::{
     widgets::{Block, Borders, List, ListItem, ListState},
 };
 
-use crate::{app::App, ui::Focus};
+use crate::{app::App, audio::AudioPlayer, ui::Focus};
 
 pub fn render(f: &mut Frame, app: &mut App) {
     let chunks = Layout::default()
