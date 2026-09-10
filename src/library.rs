@@ -95,5 +95,8 @@ fn is_music_file(path: &PathBuf) -> bool {
         .and_then(|s| s.to_str())
         .unwrap_or("")
         .to_lowercase();
-    matches!(ext.as_str(), "flac" | "mp3" | "ogg" | "wav")
+    matches!(
+        ext.as_str(),
+        "flac" | "mp3" | "ogg" | "wav" | "m4a" | "opus"
+    )
 }
